@@ -1,0 +1,24 @@
+{
+  "name": "whisper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "whisper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Wood",
+  "license": "SEE LICENSE IN license.md",
+  "dependencies": {
+    "@deepgram/sdk": "^1.21.0",
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "formidable": "^2.1.1",
+    "https": "^1.0.0",
+    "mime-types": "^2.1.35",
+    "openai": "^3.2.1",
+    "socket.io": "^4.6.1",
+    "uuid": "^9.0.0"
+  }
+}
