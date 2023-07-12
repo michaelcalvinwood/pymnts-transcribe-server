@@ -19,43 +19,8 @@ app.use(express.static('public'));
 app.use(express.json({limit: '999mb'})); 
 app.use(cors());
 
-const cleanedChunksJSON = require('./cleanedChunks.json');
-
 const sockets = {}; // sockets[id] = socket; ?s={socketId}
 
-const createArticleFromCleanedChunks = async () => {
-    let cleanedChunks = cleanedChunksJSON;
-    let article;
-    let result;
-    let curArticleChunk;
-    if (cleanedChunks.length === 1) {
-        result = await ai.fullArticle(cleanedChunks[0]);
-        article = result.content;
-    } else {
-        for (let i = 0; i < cleanedChunks.length; ++i) {
-            console.log('message', `Using AI to write the article based on chunk #${i+1} of ${cleanedChunks.length}. This can take several minutes.`);
-            if (i === 0) {
-                result = await ai.startArticle(cleanedChunks[i]);
-                console.log('startArticle', result.content);
-                article = result.content;
-            } else {
-                if (i === cleanedChunks.length - 1 ) {
-                    result = await ai.endArticle(cleanedChunks[i], curArticleChunk);
-                   // console.log(result);
-                    console.log('endArticle', result.content);
-                }
-                else {
-                    result = await ai.continueArticle(cleanedChunks[i], curArticleChunk);
-                    console.log('continueArticle', result.content);
-                }
-                article += result.content;
-            }
-            curArticleChunk = result.content;
-        }
-        
-    }
-}
-//createArticleFromCleanedChunks();
 
 // const info = require('./media/visa.json');
 
