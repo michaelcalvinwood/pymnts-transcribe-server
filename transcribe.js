@@ -1,4 +1,4 @@
-const httpsPort = 6400;
+const httpsPort = 6500;
 const privateKeyPath = '/etc/letsencrypt/live/node.pymnts.com/privkey.pem';
 const fullchainPath = '/etc/letsencrypt/live/node.pymnts.com/fullchain.pem';
 
@@ -473,7 +473,7 @@ const httpsServer = https.createServer({
 
 const io = require('socket.io')(httpsServer, {
     cors: {
-      origin: "https://whisper.pymnts.com",
+      origin: "https://transcribe.pymnts.com",
       methods: ["GET", "POST"]
     }
   });

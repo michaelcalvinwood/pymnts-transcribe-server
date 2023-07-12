@@ -96,7 +96,7 @@ async function turboChatCompletion (prompt, temperature = 0, service = 'You are 
 exports.transcribeAudio = async (inputFileName, outputFileName) => {
     const transcript = await openai.createTranscription(
       fs.createReadStream(inputFileName),
-      "whisper-1"
+      "transcribe-1"
     );
 
     await fsPromises.writeFile(outputFileName, transcript.data.text);

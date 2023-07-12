@@ -1,8 +1,8 @@
 {
-  "name": "whisper",
+  "name": "transcribe",
   "version": "1.0.0",
   "description": "",
-  "main": "whisper.js",
+  "main": "transcribe.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
